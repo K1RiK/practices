@@ -29,7 +29,7 @@
 
 Пример использования:<br>
 
-	server.exe "main.exe --file data --query SADD myset value"
+	server.exe "--file data --query SADD myset value"
 
 
 **Практика 3 "Сервис сокращения ссылок"**
