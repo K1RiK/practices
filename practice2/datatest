@@ -1,0 +1,4 @@
+stack mystack 1
+queue myqueue Hello
+set myqueue 123qwe_$#
+hash myhash1 Hello:AB

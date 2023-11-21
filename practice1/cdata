@@ -1,0 +1,11 @@
+set myset 3 2
+set myset1 6 4
+set myset2 8 7
+stack mystack 1 2
+stack mystack1 4
+queue myqueue 1 2 3
+queue myqueue1 4 5 6
+queue myqueue2 9
+hash myset 2:3 1:2
+hash myset1 3:4 4:5
+hash myset2 5:6 6:7

@@ -1,0 +1,4 @@
+stack mystack 1 2 3
+queue myqueue 3
+hash myhash key:value
+set myset 3 1

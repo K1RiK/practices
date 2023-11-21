@@ -1,0 +1,4 @@
+set myset 2
+stack mystack 1
+queue myqueue 2
+hash mytable 1:2
