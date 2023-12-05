@@ -1,6 +1,6 @@
-import os
 import socket
-from flask import Flask, redirect, request
+import requests
+from flask import Flask, redirect, request, jsonify
 
 
 class _Socket():
@@ -47,9 +47,23 @@ class UrlShortener:
     #     print(response)
 
 
+class SaveStatistics():
+    def __init__(self, host: str = "127.0.0.1", port: str = "6767"):
+        self.host = host
+        self.port = port
+
+    def send_statistic(self, data):
+        print(data)
+        print(jsonify(data))
+        resp = requests.post(f"http://{self.host}:{self.port}", json=data)
+        print(resp)
+        print(resp.text)
+
+
 app = Flask(__name__)
 
 shortener = UrlShortener()
+save_statistics = SaveStatistics("127.0.0.1", "6767")
 
 
 @app.route('/', methods=['POST'])
@@ -71,6 +85,15 @@ def redirect_endpoint(short_url):
 
     if full_url == '(null)':
         return redirect('/')
+
+    data = {
+        "ip": request.remote_addr,
+        "url": f"{full_url}+({short_url})",
+    }
+
+    print(f"{data=}")
+
+    save_statistics.send_statistic(data)
 
     if len(full_url.split('://')) == 1:
         return redirect(f'https://{full_url}')
